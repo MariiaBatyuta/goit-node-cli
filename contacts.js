@@ -52,15 +52,9 @@ async function addContact(name, email, phone) {
 
     const newContact = { name, email, phone, id: crypto.randomUUID() };
 
-    const existContact = contacts.find(contact => contact.name === name && contact.email === email && contact.phone === phone);
-    
-    if (existContact) {
-        return "\x1B[31m Contact already exist at list!";
-    } else {
-        contacts.push(newContact);
-        await writeContactFile(contacts);
-        return newContact;
-    }
+    contacts.push(newContact);
+    await writeContactFile(contacts);
+    return newContact;
 }
 
 
