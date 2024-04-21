@@ -26,7 +26,7 @@ async function getContactById(contactId) {
 
     const contact = contacts.find((contact) => contact.id === contactId);
 
-    if (typeof contact === undefined) return null;
+    if (!contact) return null;
 
     return contact;
 }
